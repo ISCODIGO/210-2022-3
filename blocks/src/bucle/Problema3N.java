@@ -1,6 +1,10 @@
 /*
 
-    Dado un valor entero N. Si N es par: N/2; si N es impar entonces 3N + 1
+Dado un valor entero N. Si N es par: N/2; si N es impar entonces 3N + 1
+Si generamos una secuencia de numeros bajo esta logica se genera una
+secuencia infinita, repititiva a partir de que el valor sea 1.
+Por ejemplo si se inicia con N=3, la secuencia sera:
+3, 10, 5, 16, 8, , 4, 2, 1, 4, 2, 1, ...
 
  */
 package bucle;
