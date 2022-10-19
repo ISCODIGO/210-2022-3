@@ -1,7 +1,7 @@
 /*
 
 La diferencia mas notable entre un while y un do-while es sobre la evaluacion
-de la condicion en el while sea hace antes del primer ciclo y en el do-while
+de la condicion: en el while sea hace antes del primer ciclo y en el do-while
 ocurre al final de cada ciclo.
 
 Es permite que el do-while se ejecute al menos
