@@ -27,6 +27,6 @@ public class ArrayBusqueda {
         // esta ordenando el array
         Arrays.sort(datos);
         System.out.println(Arrays.toString(datos));
-        System.out.println(Arrays.binarySearch(datos, 100));
+        System.out.println(Arrays.binarySearch(datos, 2));
     }
 }
