@@ -6,26 +6,16 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 
 public class GameController {
-    @FXML
-    private Button button00;
-    @FXML
-    private Button button01;
-    @FXML
-    private Button button02;
-    @FXML
-    private Button button10;
-    @FXML
-    private Button button11;
-    @FXML
-    private Button button12;
-    @FXML
-    private Button button20;
-    @FXML
-    private Button button21;
-    @FXML
-    private Button button22;
-    @FXML
-    private Label labelTurno;
+    @FXML private Button button1;
+    @FXML private Button button2;
+    @FXML private Button button3;
+    @FXML private Button button4;
+    @FXML private Button button5;
+    @FXML private Button button6;
+    @FXML private Button button7;
+    @FXML private Button button8;
+    @FXML private Button button9;
+    @FXML private Label labelTurno;
 
     private int turnos = 0;
 
@@ -36,25 +26,26 @@ public class GameController {
             return;  // el tablero ya fue inicializado
 
         tablero = new Button[3][3];
-        tablero[0][0] = button00;
-        tablero[0][1] = button10;
-        tablero[0][2] = button20;
-        tablero[1][0] = button01;
-        tablero[1][1] = button11;
-        tablero[1][2] = button21;
-        tablero[2][0] = button02;
-        tablero[2][1] = button12;
-        tablero[2][2] = button22;
+        tablero[0][0] = button1;
+        tablero[0][1] = button2;
+        tablero[0][2] = button3;
+        tablero[1][0] = button4;
+        tablero[1][1] = button5;
+        tablero[1][2] = button6;
+        tablero[2][0] = button7;
+        tablero[2][1] = button8;
+        tablero[2][2] = button9;
     }
 
     private void reiniciarTablero() {
         int k = 1;
         turnos = 0;
+        labelTurno.setText("Turnos: 0");
         for(int i = 0; i < tablero.length; i++) {
             for (int j = 0; j < tablero[i].length; j++) {
                 tablero[i][j].setText(String.valueOf((k)));
                 tablero[i][j].setDisable(false);
-                tablero[i][j].setStyle("-fx-background-color: #f0f0f0");
+                tablero[i][j].setStyle("-fx-background-color: #f0f0f0; -fx-border-color: #000000; -fx-border-radius: 5;");
                 k++;
             }
         }
@@ -66,55 +57,53 @@ public class GameController {
 
      */
     private String getGanador() {
-        String s00 = button00.getText();
-        String s01 = button01.getText();
-        String s02 = button02.getText();
-        String s10 = button10.getText();
-        String s11 = button11.getText();
-        String s12 = button12.getText();
-        String s20 = button20.getText();
-        String s21 = button21.getText();
-        String s22 = button22.getText();
-        if (s00.equals(s10) && s10.equals(s20)) {
-            return s00;
+        String s1 = button1.getText();
+        String s2 = button2.getText();
+        String s3 = button3.getText();
+        String s4 = button4.getText();
+        String s5 = button5.getText();
+        String s6 = button6.getText();
+        String s7 = button7.getText();
+        String s8 = button8.getText();
+        String s9 = button9.getText();
+
+        if (s1.equals(s2) && s2.equals(s3)) {
+            return s1;
         }
 
-        if (s01.equals(s11) && s01.equals(s21)) {
-            return s01;
+        if (s4.equals(s5) && s4.equals(s6)) {
+            return s4;
         }
 
-        if (s02.equals(s12) && s11.equals(s22)) {
-            return s02;
+        if (s7.equals(s8) && s8.equals(s9)) {
+            return s7;
         }
 
-        if (s00.equals(s01) && s11.equals(s02)) {
-            return s00;
+        if (s1.equals(s4) && s4.equals(s7)) {
+            return s1;
         }
 
-        if (s10.equals(s11) && s11.equals(s12)) {
-            return s10;
+        if (s2.equals(s5) && s5.equals(s8)) {
+            return s2;
         }
 
-        if (s20.equals(s21) && s21.equals(s22)) {
-            return s20;
+        if (s3.equals(s6) && s6.equals(s9)) {
+            return s3;
         }
 
-        if (s00.equals(s11) && s11.equals(s22)) {
-            return s00;
+        if (s1.equals(s5) && s5.equals(s9)) {
+            return s1;
         }
 
-        if (s02.equals(s11) && s11.equals(s20)) {
-            return s02;
+        if (s3.equals(s5) && s5.equals(s7)) {
+            return s3;
         }
 
         return "";
     }
 
     private void manipularButton(Button b) {
-        turnos++;
-
-        labelTurno.setText(String.valueOf(turnos));
-
+        labelTurno.setText("Turnos: " + (++turnos));
         setTablero();
 
         if (turnos % 2 == 0) {
@@ -132,54 +121,44 @@ public class GameController {
             alert.setHeaderText(null);
             alert.setContentText("Hay un ganador: " + ganador);
             alert.showAndWait();
-
             reiniciarTablero();
         }
     }
 
-    @FXML
-    protected void button00Click() {
-        manipularButton(button00);
+    @FXML protected void button00Click() {
+        manipularButton(button1);
     }
 
-    @FXML
-    protected void button01Click() {
-        manipularButton(button01);
+    @FXML protected void button01Click() {
+        manipularButton(button4);
     }
 
-    @FXML
-    protected void button02Click() {
-        manipularButton(button02);
+    @FXML protected void button02Click() {
+        manipularButton(button7);
     }
 
-    @FXML
-    protected void button10Click() {
-        manipularButton(button10);
+    @FXML protected void button10Click() {
+        manipularButton(button2);
     }
 
-    @FXML
-    protected void button11Click() {
-        manipularButton(button11);
+    @FXML protected void button11Click() {
+        manipularButton(button5);
     }
 
-    @FXML
-    protected void button12Click() {
-        manipularButton(button12);
+    @FXML protected void button12Click() {
+        manipularButton(button8);
     }
 
-    @FXML
-    protected void button20Click() {
-        manipularButton(button20);
+    @FXML protected void button20Click() {
+        manipularButton(button3);
     }
 
-    @FXML
-    protected void button21Click() {
-        manipularButton(button21);
+    @FXML protected void button21Click() {
+        manipularButton(button6);
     }
 
-    @FXML
-    protected void button22Click() {
-        manipularButton(button22);
+    @FXML protected void button22Click() {
+        manipularButton(button9);
     }
 
 }
