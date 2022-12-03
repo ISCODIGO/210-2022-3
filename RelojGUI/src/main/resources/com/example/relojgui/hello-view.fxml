@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+
+<BorderPane prefHeight="250.0" prefWidth="505.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.relojgui.HelloController">
+   <bottom>
+      <HBox BorderPane.alignment="CENTER">
+         <children>
+            <Label text="Horas" />
+            <TextField fx:id="textHoras" prefHeight="26.0" prefWidth="72.0" />
+            <Label text="Minutos" />
+            <Slider fx:id="sliderMinutos" />
+            <Button fx:id="buttonElegir" mnemonicParsing="false" text="Elegir" />
+         </children>
+      </HBox>
+   </bottom>
+   <center>
+      <Label fx:id="labelReloj" text="00:00:00" BorderPane.alignment="CENTER">
+         <font>
+            <Font size="96.0" />
+         </font>
+      </Label>
+   </center>
+</BorderPane>

@@ -43,6 +43,14 @@ public class TestLambda {
         // necesario colocarlo ni que lleven llaves
         Calculable dividir = (v1, v2) -> v1 / v2;
 
+        Saludo saludo = (s) -> {
+            System.out.println(s);
+        };
+
+        Saludo saludo1 = s -> {
+            System.out.println("Hola " + s);
+        };
+
         // Implementacion de las funciones
         miPrintLn.imprimir();
         miPrint.imprimir();
@@ -50,6 +58,7 @@ public class TestLambda {
         System.out.println(multiplicar.calcular(3, 4));
         System.out.println(sumar.calcular(5, 6));
         System.out.println(dividir.calcular(10, 3));
-
+        saludo.saludar("Programacion II");
+        saludo1.saludar("Programacion II");
     }
 }
