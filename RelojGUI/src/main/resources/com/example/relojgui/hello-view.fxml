@@ -1,20 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-
 <BorderPane prefHeight="250.0" prefWidth="505.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.relojgui.HelloController">
    <bottom>
-      <HBox BorderPane.alignment="CENTER">
+      <HBox spacing="10.0" BorderPane.alignment="CENTER">
          <children>
             <Label text="Horas" />
             <TextField fx:id="textHoras" prefHeight="26.0" prefWidth="72.0" />
             <Label text="Minutos" />
-            <Slider fx:id="sliderMinutos" />
-            <Button fx:id="buttonElegir" mnemonicParsing="false" text="Elegir" />
+            <Slider fx:id="sliderMinutos" blockIncrement="1.0" max="59.0" />
+            <Label fx:id="labelMinutos" text="0" />
+            <Button fx:id="buttonElegir" mnemonicParsing="false" onAction="#buttonElegirClick" text="Establecer" />
          </children>
+         <BorderPane.margin>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </BorderPane.margin>
       </HBox>
    </bottom>
    <center>

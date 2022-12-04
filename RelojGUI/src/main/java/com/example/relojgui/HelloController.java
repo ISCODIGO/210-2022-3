@@ -2,21 +2,25 @@ package com.example.relojgui;
 
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
+import javafx.scene.control.Slider;
+import javafx.scene.control.TextField;
 import javafx.util.Duration;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 
 public class HelloController implements Initializable {
-    static int i = 0;
-    @FXML
-    private Label welcomeText;
-    @FXML
-    private Label labelReloj;
-    Reloj reloj = new Reloj();
+    @FXML private Label labelReloj;
+    @FXML private TextField textHoras;
+    @FXML private Slider sliderMinutos;
+    @FXML private Label labelMinutos;
+
+    private Reloj reloj;
 
     // Animacion
     Timeline timeline = new Timeline(
@@ -30,13 +34,21 @@ public class HelloController implements Initializable {
 
     );
 
-    @FXML
-    protected void onHelloButtonClick() {
-        welcomeText.setText("Welcome to JavaFX Application!");
-    }
-
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        sliderMinutos.valueProperty().addListener(
+                // lambda
+                (observable, oldValue, newValue) -> labelMinutos.setText(
+                        String.valueOf(newValue.intValue())
+                )
+        );
+    }
+
+    @FXML public void buttonElegirClick() {
+        int horas = Integer.parseInt(textHoras.getText());
+        int minutos = (int) sliderMinutos.getValue();
+        int segundos = 0;
+        reloj = new Reloj(horas, minutos, segundos);
         timeline.setCycleCount(Timeline.INDEFINITE);
         timeline.play();
     }
