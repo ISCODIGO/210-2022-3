@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<BorderPane xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.dados.GameController">
+<BorderPane style="-fx-background-color: e1e1e1;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.dados.GameController">
    <center>
       <GridPane hgap="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" vgap="10.0">
         <columnConstraints>
@@ -29,11 +29,16 @@
       </GridPane>
    </center>
    <top>
-      <Label text="Juego de dados" BorderPane.alignment="CENTER">
-         <font>
-            <Font size="35.0" />
-         </font>
-      </Label>
+      <VBox alignment="CENTER" BorderPane.alignment="CENTER">
+         <children>
+            <Label text="Juego de dados">
+               <font>
+                  <Font size="35.0" />
+               </font>
+            </Label>
+            <Label text="Pierdes al llegar a 0. Ganas al llegar a 150." />
+         </children>
+      </VBox>
    </top>
    <bottom>
       <FlowPane alignment="CENTER" hgap="10.0" maxHeight="150.0" minHeight="150.0" prefHeight="134.0" prefWidth="600.0" BorderPane.alignment="CENTER">
@@ -77,6 +82,9 @@
                   </Label>
                </children>
             </VBox>
+            <Label fx:id="labelGanancia" alignment="CENTER" text="+0">
+
+                        </Label>
          </children>
       </FlowPane>
    </bottom>
