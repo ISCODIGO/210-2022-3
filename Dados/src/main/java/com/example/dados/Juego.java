@@ -20,13 +20,16 @@ public class Juego implements Comparable<Juego> {
         return this.valor;
     }
 
+    /**
+     * Funcion que permite obtener el Path de cada imagen
+     * @return
+     */
     public String[] getImagenes() {
-        String[] recursos = {
-                dado1.getValor() + ".png",
-                dado2.getValor() + ".png"
-        };
 
-        return recursos;
+        return new String[]{
+                String.format("images/%s.png", dado1.getValor()),
+                String.format("images/%s.png", dado2.getValor())
+        };
     }
 
     @Override
